@@ -2,16 +2,13 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
 def train_model(X_train_tfidf, y_train):
-    # Train a logistic regression model
     model = LogisticRegression()
     model.fit(X_train_tfidf, y_train)
     return model
 
 def evaluate_model(model, X_test_tfidf, y_test, le):
-    # Predict on the test data
     y_pred = model.predict(X_test_tfidf)
 
-    # Evaluate the model
     accuracy = accuracy_score(y_test, y_pred)
     print(f"Accuracy: {accuracy * 100:.2f}%")
     print(classification_report(y_test, y_pred, target_names=le.classes_))
