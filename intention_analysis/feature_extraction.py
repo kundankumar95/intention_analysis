@@ -1,7 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def extract_features(X_train, X_test):
-    # Convert text to TF-IDF features
     vectorizer = TfidfVectorizer()
     X_train_tfidf = vectorizer.fit_transform(X_train)
     X_test_tfidf = vectorizer.transform(X_test)
